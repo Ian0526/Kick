@@ -1,5 +1,7 @@
 # Kick
 
+Thunderstore deleted this mod, so here it is for those who know how to manually install it without their terrible, ad-filled UI. 
+
 Disclaimer: I know semiwork is working on a kick feature, but this will suffice until then.
 
 Kick allows hosts (Vanilla or Modded) to kick players with a simple UI. Players **do not** need this mod, you can run a vanilla modded without worry now.
