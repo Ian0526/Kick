@@ -165,12 +165,12 @@ public class KickSpawnGUI : MonoBehaviourPunCallbacks
         }
     }
 
-    public void MakePlayersClientSad(Player targetPlayer)
+    public IEnumerator MakePlayersClientSad(Player targetPlayer)
     {
         if (!PhotonNetwork.IsMasterClient)
         {
             Debug.LogWarning("[Kick] You are not the MasterClient, cannot perform this action!");
-            return;
+            yield break;
         }
 
         LevelGenerator lg = FindObjectOfType<LevelGenerator>();
@@ -178,7 +178,7 @@ public class KickSpawnGUI : MonoBehaviourPunCallbacks
         if (lg == null)
         {
             Debug.LogError("[KickExploit] Could not find LevelGenerator PhotonView.");
-            return;
+            yield break;
         }
 
         // https://media.tenor.com/CRXCax5A5vgAAAAM/kots-straal.gif
@@ -197,6 +197,11 @@ public class KickSpawnGUI : MonoBehaviourPunCallbacks
             lg.PhotonView.RPC("ItemSetup", targetPlayer);
             lg.PhotonView.RPC("NavMeshSetupRPC", targetPlayer);
         }
+
+        PhotonNetwork.EnableCloseConnection = true;
+
+        yield return new WaitForSeconds(0.2f);
+        PhotonNetwork.CloseConnection(targetPlayer);
     }
 
 
