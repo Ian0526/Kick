@@ -1,6 +1,6 @@
 # Kick
 
-Thunderstore deleted this mod, so here it is for those who know how to manually install it without their terrible, ad-filled UI. 
+Thunderstore deleted this mod, so here it is for those who know how to manually install it with/or without their terrible, ad-filled UI. 
 
 Disclaimer: I know semiwork is working on a kick feature, but this will suffice until then.
 
