@@ -15,7 +15,13 @@ public static class KickPatch
         if (__instance.gameObject.GetComponent<KickSpawnGUI>() == null)
         {
             __instance.gameObject.AddComponent<KickSpawnGUI>();
-            Debug.Log("[KickPatch] Kick initialized. (This may pop up several times as ShopManager instances are destroyed, this is not a bug).");
+
+            // only send message once tired of seeing it
+            if (KickPlugin.componentAddedOnce == false)
+            {
+                Debug.Log("[KickPatch] Kick initialized. (This may pop up several times as ShopManager instances are destroyed, this is not a bug).");
+                KickPlugin.componentAddedOnce = true;
+            }
         }
     }
 }

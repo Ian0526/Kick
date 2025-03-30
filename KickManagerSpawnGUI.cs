@@ -14,13 +14,11 @@ public class KickSpawnGUI : MonoBehaviourPunCallbacks
     private bool showKickGUI = false;
     private bool isTextFieldFocused = false;
     private Dictionary<PlayerAvatar, Coroutine> ballStateCoroutines = new Dictionary<PlayerAvatar, Coroutine>();
-
-    private float maxNameWidth = 0f;
-    private float baseMenuWidth = 600f;
     private GUIStyle textStyle;
 
     private void Update()
     {
+        // actual pov of a papier-mâché wall, please fix rpc security semiwork
         if (!PhotonNetwork.IsMasterClient) return;
         if (!isTextFieldFocused && Keyboard.current.f2Key.wasPressedThisFrame)
         {
@@ -198,11 +196,8 @@ public class KickSpawnGUI : MonoBehaviourPunCallbacks
             lg.PhotonView.RPC("NavMeshSetupRPC", targetPlayer);
         }
 
-        // And mentions of cheats that somehow circumvent this, we will just
-        // disconnect the player and put them in a glitched state. They will
-        // be in the Steam Lobby/Voice Lobby but at least they aren't able to send
-        // any other RPC methods.
         PhotonNetwork.EnableCloseConnection = true;
+
         yield return new WaitForSeconds(0.2f);
         PhotonNetwork.CloseConnection(targetPlayer);
     }
