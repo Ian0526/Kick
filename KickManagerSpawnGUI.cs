@@ -198,8 +198,11 @@ public class KickSpawnGUI : MonoBehaviourPunCallbacks
             lg.PhotonView.RPC("NavMeshSetupRPC", targetPlayer);
         }
 
+        // And mentions of cheats that somehow circumvent this, we will just
+        // disconnect the player and put them in a glitched state. They will
+        // be in the Steam Lobby/Voice Lobby but at least they aren't able to send
+        // any other RPC methods.
         PhotonNetwork.EnableCloseConnection = true;
-
         yield return new WaitForSeconds(0.2f);
         PhotonNetwork.CloseConnection(targetPlayer);
     }
