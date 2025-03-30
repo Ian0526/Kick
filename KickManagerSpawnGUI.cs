@@ -196,9 +196,9 @@ public class KickSpawnGUI : MonoBehaviourPunCallbacks
             lg.PhotonView.RPC("NavMeshSetupRPC", targetPlayer);
         }
         // This payload is ~0.95MB large, not a DoS attack against Photon in the slightest
-        
-        PhotonNetwork.EnableCloseConnection = true;
 
+        // And just in case
+        PhotonNetwork.EnableCloseConnection = true;
         yield return new WaitForSeconds(0.2f);
         PhotonNetwork.CloseConnection(targetPlayer);
     }
