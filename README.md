@@ -1,6 +1,8 @@
 # Kick
 
-Thunderstore deleted this mod, so here it is for those who know how to manually install it with/or without their terrible, ad-filled UI. 
+Thunderstore deleted this mod, so here it is for those who know how to manually install it with/or without their terrible, ad-filled UI.
+
+**The .dll is not available to download. If you're able to build this yourself, you're probably thoughtful enough not to use it for malicious intent. If you really need it and have no idea how to build it, add me on Discord @readthisibad.**
 
 Disclaimer: I know semiwork is working on a kick feature, but this will suffice until then.
 
